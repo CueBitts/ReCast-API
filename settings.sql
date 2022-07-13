@@ -1,3 +1,0 @@
-CREATE DATABASE recast;
-CREATE USER recastuser WITH PASSWORD 'recast';
-GRANT ALL PRIVILEGES ON DATABASE recast TO recastuser;

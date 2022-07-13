@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from django.http import JsonResponse
+from .models import Recast
+from .serializers import RecastSerializer
 
-# Create your views here.
+def recasts(request):
+    recasts = Recast.objects.all()
+    serializer = RecastSerializer(recasts, many=True)
+    return JsonResponse({'data': serializer.data})
