@@ -18,10 +18,33 @@ from django.urls import path
 from recast import views
 from rest_framework.urlpatterns import format_suffix_patterns
 
+# User, Recast, RecastInst, Actor, Movie, CastInst
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('users/', views.users),
+    path('user/<int:id>/', views.user),
+    # should return recasts
     path('recasts/', views.recasts),
-    path('recasts/<int:id>', views.recast),
+    # should return recastinsts
+    path('recast/<int:id>/', views.recast),
+    # should return recastinsts
+    path('recastinsts/', views.recastInsts),
+    # unnecessary
+    path('recastinst/<int:id>/', views.recastInst),
+    # unnecessary
+    path('actors/', views.actors),
+    path('actor/<int:id>/', views.actor),
+    # should return recasts
+    path('movies/', views.movies),
+    # should return castInsts
+    path('movie/<int:id>/', views.movie),
+    # should return castInsts
+    # should return recasts
+    path('castinsts/', views.castInsts),
+    # unnecessary
+    path('castinst/<int:id>/', views.castInst)
+    # unnecessary
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
