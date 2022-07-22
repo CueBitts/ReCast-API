@@ -18,7 +18,7 @@ class Recast(models.Model):
     name = models.CharField(max_length=256)
     # movie = models.ForeignKey('Movie', related_name='recasts', on_delete=models.SET_NULL, null=True)
     movie = models.CharField(max_length=256)
-    user = models.ForeignKey(User, related_name='recasts', on_delete=models.SET_NULL, null=True)
+    user = models.ForeignKey(User, related_name='recasts', on_delete=models.CASCADE, null=True, blank=True)
     desc = models.TextField(null=True, blank=True)
     # recastInst
     upvotes = models.ManyToManyField(User, related_name='upvotes', blank=True)

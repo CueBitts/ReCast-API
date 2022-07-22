@@ -6,7 +6,7 @@ from .models import User, Recast, RecastInst
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'name', 'password', 'recasts']
+        fields = ['id', 'name', 'password']
 
 # class CastInstSerializer(serializers.ModelSerializer):
 #     class Meta:

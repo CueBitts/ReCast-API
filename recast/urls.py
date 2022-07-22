@@ -24,7 +24,7 @@ router = DefaultRouter()
 router.register(r'users', views.UserViewSet, basename='user')
 router.register(r'recasts', views.RecastViewSet, basename='recast')
 router.register(r'recastinsts', views.RecastInstViewSet, basename='recastinst')
-urlpatterns = [path('admin/', admin.site.urls), path('', include(router.urls))]
+urlpatterns = [path('admin/', admin.site.urls), path('sign-in/', views.userSignIn), path('', include(router.urls))]
 
 # urlpatterns = [
 #     path('admin/', admin.site.urls),

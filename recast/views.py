@@ -14,6 +14,18 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
+
+@api_view(['POST'])
+def userSignIn(request):   
+    try:
+        user = User.objects.get(name=request.data['name'], password=request.data['password'])
+    except:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'POST':
+        serializer = UserSerializer(user)
+        return Response(serializer.data)
+
 class RecastViewSet(viewsets.ModelViewSet):
     queryset = Recast.objects.all()
     serializer_class = RecastSerializer
