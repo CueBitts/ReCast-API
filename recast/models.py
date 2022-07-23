@@ -29,7 +29,7 @@ class Recast(models.Model):
 
 class RecastInst(models.Model):
     # id
-    recast = models.ForeignKey(Recast, related_name='recastInsts', on_delete=models.RESTRICT)
+    recast = models.ForeignKey(Recast, related_name='recastInsts', on_delete=models.CASCADE)
     name = models.CharField(max_length=256)
     # actor = models.ForeignKey('Actor', related_name='recastInsts', on_delete=models.SET_NULL, null=True)
     actor = models.CharField(max_length=256)

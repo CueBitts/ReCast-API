@@ -14,6 +14,9 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
+    def update(self, request, *args, **kwargs):
+        kwargs['partial'] = True
+        return super().update(request, *args, **kwargs)
 
 @api_view(['POST'])
 def userSignIn(request):   
@@ -32,6 +35,10 @@ class RecastViewSet(viewsets.ModelViewSet):
     
     def perform_create(self, serializer):
         serializer.save(user=User.objects.get(pk=self.request.data['user']))
+    
+    def update(self, request, *args, **kwargs):
+        kwargs['partial'] = True
+        return super().update(request, *args, **kwargs)
 
 class RecastInstViewSet(viewsets.ModelViewSet):
     queryset = RecastInst.objects.all()
