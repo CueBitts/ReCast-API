@@ -1,1 +1,0 @@
-web: gunicorn recast.wsgi --log-file -
